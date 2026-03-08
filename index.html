@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Hum Manch | Personality Development</title>
 
 <style>
@@ -200,9 +201,10 @@ align-items:center;
 
 <p>Empowering Personalities • Building Confidence • Creating Leaders</p>
 
-<a href="mailto:hummanch@gmail.com?subject=Join Hum Manch&body=Hello, I would like to join Hum Manch." target="_blank">
-<button class="join-btn">Join Hum Manch</button>
-</a>
+<button class="join-btn"
+onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=hummanch@gmail.com&su=Join Hum Manch&body=Hello I would like to join Hum Manch.')">
+Join Hum Manch
+</button>
 
 </header>
 
@@ -250,7 +252,7 @@ Hum Manch encourages students to express themselves and grow into confident indi
 
 <div class="card">
 <h3>Leadership Activities</h3>
-<p>Learn teamwork, responsibility, and leadership through collaborative challenges.</p>
+<p>Learn teamwork and leadership through collaborative challenges.</p>
 </div>
 
 </div>
@@ -264,15 +266,13 @@ Hum Manch encourages students to express themselves and grow into confident indi
 <h2 class="section-title">Contact Us</h2>
 
 <form class="contact-form"
-action="mailto:hummanch@gmail.com"
-method="POST"
-enctype="text/plain">
+onsubmit="sendMail(); return false;">
 
-<input type="text" name="Name" placeholder="Your Name" required>
+<input type="text" id="name" placeholder="Your Name" required>
 
-<input type="email" name="Email" placeholder="Your Email" required>
+<input type="email" id="email" placeholder="Your Email" required>
 
-<textarea name="Message" rows="5" placeholder="Your Message" required></textarea>
+<textarea id="message" rows="5" placeholder="Your Message" required></textarea>
 
 <button type="submit">Send Message</button>
 
@@ -287,6 +287,25 @@ enctype="text/plain">
 <p>© 2026 Hum Manch | Personality Development Platform</p>
 
 </footer>
+
+
+<script>
+
+function sendMail(){
+
+var name=document.getElementById("name").value;
+var email=document.getElementById("email").value;
+var message=document.getElementById("message").value;
+
+var link="https://mail.google.com/mail/?view=cm&fs=1&to=hummanch@gmail.com"
++"&su=Website Contact"
++"&body=Name: "+name+"%0AEmail: "+email+"%0A%0AMessage: "+message;
+
+window.open(link);
+
+}
+
+</script>
 
 
 </body>
